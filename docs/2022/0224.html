@@ -33,7 +33,7 @@
 <script>
 	$(function() {
 	var titles = [];
-	$.getJSON('../../2022/20220224.json', function(data) {
+	$.getJSON('https://github.com/gioxx/netflix-leaving/raw/main/2022/20220224.json', function(data) {
 			$.each(data.ITEMS, function(i, f) {
 				var tblRow = "<tr>" + "<td><img src='" + f.image + "' /></td>" +
 					"<td>" + f.title + "</td>" + "<td>" + f.type + "</td>" + "<td><a href='https://www.imdb.com/title/" + f.imdbid + "/'>link</a></td>" + "<td>" + f.runtime + "</td>" + "<td>" + f.released + "</td>" + "<td>" + f.unogsdate + "</td>" + "</tr>"
