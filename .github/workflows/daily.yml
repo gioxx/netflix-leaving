@@ -25,13 +25,17 @@ jobs:
         env:
           XRAPIDAPIHOST: ${{ secrets.XRAPIDAPIHOST }}
           XRAPIDAPIKEY: ${{ secrets.XRAPIDAPIKEY }}
+
+      - name: Get Daily Date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y%m%d')"
           
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           # Optional, but recommended
           # Defaults to "Apply automatic changes"
-          commit_message: Make Daily
+          commit_message: Daily-${{ steps.date.outputs.date }}
 
           # Optional glob pattern of files which should be added to the commit
           # Defaults to all (.)
