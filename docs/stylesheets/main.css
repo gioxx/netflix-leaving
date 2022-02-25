@@ -1,0 +1,36 @@
+/*	Netflix Leaving Titles - Main CSS
+	GSolone 2022
+	Thanks to: https://dev.to/dcodeyt/creating-beautiful-html-tables-with-css-428l
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+body { font-family: 'Roboto', sans-serif; }
+.header {
+	color: #000;
+	text-transform: uppercase;
+	font-weight: 900;
+	font-size: 30px;
+}
+.subheader { font-family: 'Roboto', sans-serif; font-size: 0.9em; display: flex; align-items: center; }
+.subheader span { color: #ccc; padding: 0 5px; }
+.subheader img { max-width: 16px; padding-right: 7px; }
+.subheader a { color: #000; text-decoration: none; }
+table, tbody { width: 100%; }
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: #E50914;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th, .styled-table td { padding: 12px 15px; }
+.styled-table tbody tr { border-bottom: 1px solid #dddddd; }
+.styled-table tbody tr:nth-of-type(even) { background-color: #f3f3f3; }
+.styled-table tbody tr:last-of-type { border-bottom: 2px solid #E50914; }
+.styled-table img { max-width: 80px; }
+.styled-table a { color: #000; text-decoration: none; }
+.styled-table a:hover { font-weight: bold; }
