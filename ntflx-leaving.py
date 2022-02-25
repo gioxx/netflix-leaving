@@ -56,8 +56,6 @@ def main():
         os.makedirs(year)
     if not os.path.exists(os.path.join(year,month)):
         os.makedirs(os.path.join(year,month))
-    if not os.path.exists(os.path.join("docs",year)):
-        os.makedirs(os.path.join("docs",year))
 
     if "COUNT" in leavingtitles:
         print("Title list: OK")
@@ -76,9 +74,9 @@ def main():
 
         # Make Daily
         print("Make Daily")
-        jsonfile = os.path.join("..","..",year,year+month+day+".json")
+        jsonfile = os.path.join(year+month+day+".json")
         html = makewebpage(jsonfile)
-        with open (os.path.join("docs",year,month+day+".html"), 'w') as fp:
+        with open (os.path.join(year,month+day+".html"), 'w') as fp:
             fp.write(html)
 
     else:
