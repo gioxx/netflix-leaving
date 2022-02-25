@@ -20,7 +20,7 @@ jobs:
       - name: Install Requirements
         run: pip install -r requirements.txt
 
-      - name: Get Leaving Tiles JSON
+      - name: Get Leaving Titles JSON
         run: python ntflx-leaving.py
         env:
           XRAPIDAPIHOST: ${{ secrets.XRAPIDAPIHOST }}
@@ -31,7 +31,7 @@ jobs:
         with:
           # Optional, but recommended
           # Defaults to "Apply automatic changes"
-          commit_message: Upload new files
+          commit_message: Make Daily
 
           # Optional glob pattern of files which should be added to the commit
           # Defaults to all (.)
