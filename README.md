@@ -1,4 +1,6 @@
 # Netflix Titles Leaving
+[![Titles expiring on Netflix](https://github.com/gioxx/netflix-leaving/actions/workflows/daily.yml/badge.svg)](https://github.com/gioxx/netflix-leaving/actions/workflows/daily.yml) [![pages-build-deployment](https://github.com/gioxx/netflix-leaving/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/gioxx/netflix-leaving/actions/workflows/pages/pages-build-deployment)
+
 This script automatically saves titles expiring on Netflix every day, in JSON format that you can use as you see fit. The automation is powered by [GitHub Actions](https://docs.github.com/en/actions) and executes automatically everyday as defined in the [daily.yaml](/.github/workflows/daily.yaml).
 
 ## Initial Set Up (approx: 10 minutes)
