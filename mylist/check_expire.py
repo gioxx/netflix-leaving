@@ -27,7 +27,7 @@ def make_webpage(json):
     response = pre + "	$.getJSON('" + json + "', function(data) {" + "\n" + post
     return response
 
-todayjson = os.path.join(year,year+month+day+".json")
+todayjson = os.path.join("..",year,year+month+day+".json")
 ntflxList = get_json(todayjson)
 mylist = get_json(exportlist_jsn)
 print("Today JSON entries: {}".format(len(ntflxList["ITEMS"])))

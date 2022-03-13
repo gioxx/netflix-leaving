@@ -39,29 +39,3 @@ jobs:
           skip_fetch: true
           skip_checkout: true
           disable_globbing: true
-
-  mylist-check:
-    needs: [execute-cron]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      - name: Check titles (from my list) expiring on Netflix
-        run: |
-          cd mylist
-          python check_expire.py
-
-      - name: Get Daily Date
-        id: date
-        run: echo "::set-output name=date::$(date +'%Y%m%d')"
-
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: MyList Expirations Update ${{ steps.date.outputs.date }}
-          push_options: '--force'
-          skip_dirty_check: true
-          skip_fetch: true
-          skip_checkout: true
-          disable_globbing: true
