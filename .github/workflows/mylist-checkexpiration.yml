@@ -3,7 +3,7 @@ name: My List - Check titles expiring on Netflix
 on:
   push:
     paths:
-    - '**/*.json'
+    - '**.json'
 
   workflow_dispatch:
 
