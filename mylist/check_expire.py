@@ -50,3 +50,6 @@ if count > 0:
         fp.write(html)
 else:
     print("No titles from your list are leaving Netflix")
+    env_file = os.getenv('GITHUB_ENV')
+    with open(env_file, "a") as ghenv:
+        ghenv.write("Expiring=None")
