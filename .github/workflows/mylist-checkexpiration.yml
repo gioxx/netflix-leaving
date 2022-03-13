@@ -24,7 +24,7 @@ jobs:
         id: date
         run: |
           echo "::set-output name=date::$(date +'%Y%m%d')"
-          echo steps.check_titlesexpiration.outputs
+          echo ${{ steps.check_titlesexpiration.outputs }}
 
       #- name: Commit changes
       #  uses: stefanzweifel/git-auto-commit-action@v4
