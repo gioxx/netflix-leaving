@@ -46,7 +46,7 @@ if count > 0:
     with open(exportlist_leaving, "w") as outfile:
         json.dump(json_list, outfile)
     html = make_webpage(exportlist_leaving)
-    with open (exportlist_html, 'w') as fp:
+    with open(exportlist_html, 'w') as fp:
         fp.write(html)
 else:
     print("No titles from your list are leaving Netflix")
