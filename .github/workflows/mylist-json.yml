@@ -1,0 +1,38 @@
+name: Genererate "My list" JSON file
+
+on:
+  push:
+    paths:
+    - 'mylist/mylist-export.txt'
+
+  workflow_dispatch:
+
+jobs:
+  generate-json:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code	
+        uses: actions/checkout@v2
+
+      - name: Setup Python Environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install Requirements
+        run: |
+          pip install -r requirements.txt
+          pip install -r mylist/requirements.txt
+
+      - name: Generate JSON from TXT
+        run: python mylist/mylist-generate.py
+          
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update My List JSON file
+          push_options: '--force'
+          skip_dirty_check: true    
+          skip_fetch: true    
+          skip_checkout: true
+          disable_globbing: true
