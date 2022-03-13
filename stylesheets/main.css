@@ -34,3 +34,9 @@ table, tbody { width: 100%; }
 .styled-table img { max-width: 80px; }
 .styled-table a { color: #000; text-decoration: none; }
 .styled-table a:hover { font-weight: bold; }
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+}
