@@ -10,7 +10,7 @@ on:
 jobs:
   mylist-checkexpiration:
     runs-on: ubuntu-latest
-    steps:    
+    steps:
       - name: Checkout Code
         uses: actions/checkout@v2
 
@@ -22,15 +22,16 @@ jobs:
 
       - name: Get Daily Date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y%m%d')"
+        run: |
+          echo "::set-output name=date::$(date +'%Y%m%d')"
+          echo steps.check_titlesexpiration.outputs
 
-      - name: Commit changes
-        if: steps.check_titlesexpiration.outputs == 'No titles from your list are leaving Netflix'
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: MyList Expirations Update ${{ steps.date.outputs.date }}
-          push_options: '--force'
-          skip_dirty_check: true
-          skip_fetch: true
-          skip_checkout: true
-          disable_globbing: true
+      #- name: Commit changes
+      #  uses: stefanzweifel/git-auto-commit-action@v4
+      #  with:
+      #    commit_message: MyList Expirations Update ${{ steps.date.outputs.date }}
+      #    push_options: '--force'
+      #    skip_dirty_check: true
+      #    skip_fetch: true
+      #    skip_checkout: true
+      #    disable_globbing: true
