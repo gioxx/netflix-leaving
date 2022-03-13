@@ -1,4 +1,4 @@
-name: Genererate "My list" JSON file
+name: My list - Genererate JSON file
 
 on:
   push:
