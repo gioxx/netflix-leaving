@@ -25,7 +25,9 @@ jobs:
           pip install -r mylist/requirements.txt
 
       - name: Generate JSON from TXT
-        run: python mylist/mylist-generate.py
+        run: |
+          cd mylist
+          python mylist-generate.py
           
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
