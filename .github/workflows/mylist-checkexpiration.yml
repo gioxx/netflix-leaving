@@ -24,14 +24,14 @@ jobs:
         id: date
         run: |
           echo "::set-output name=date::$(date +'%Y%m%d')"
-          echo echo ${{ env.Expiring }}
 
-      #- name: Commit changes
-      #  uses: stefanzweifel/git-auto-commit-action@v4
-      #  with:
-      #    commit_message: MyList Expirations Update ${{ steps.date.outputs.date }}
-      #    push_options: '--force'
-      #    skip_dirty_check: true
-      #    skip_fetch: true
-      #    skip_checkout: true
-      #    disable_globbing: true
+      - name: Commit changes
+        if: ${{ env.Expiring }} != 'None'
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: MyList Expirations Update ${{ steps.date.outputs.date }}
+          push_options: '--force'
+          skip_dirty_check: true
+          skip_fetch: true
+          skip_checkout: true
+          disable_globbing: true
