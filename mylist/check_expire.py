@@ -50,6 +50,9 @@ if count > 0:
         fp.write(html)
 else:
     print("No titles from your list are leaving Netflix")
-    env_file = os.getenv('GITHUB_ENV')
-    with open(env_file, "a") as ghenv:
-        ghenv.write("Expiring=None")
+    try:
+        env_file = os.getenv('GITHUB_ENV')
+        with open(env_file, "a") as ghenv:
+            ghenv.write("Expiring=None")
+    except:
+        print("An exception occurred, probably executed not on GitHub.")
