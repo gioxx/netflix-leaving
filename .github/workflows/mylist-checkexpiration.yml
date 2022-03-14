@@ -36,14 +36,7 @@ jobs:
           skip_fetch: true
           skip_checkout: true
           disable_globbing: true
-          
-  tweet:
-    runs-on: ubuntu-latest
-    needs: [mylist-checkexpiration]
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-        
+  
       - name: Tweet NMF
         if: env.Expiring != 'None'
         uses: snow-actions/tweet@v1.1.1
