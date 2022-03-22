@@ -53,6 +53,9 @@ $python ntflx-leaving.py
 ```
 ---
 
+## Next Steps:
+ - RSS feed (contains titles are leaving Netflix)
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
