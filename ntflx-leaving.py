@@ -7,7 +7,6 @@ import json
 import os
 
 load_dotenv(find_dotenv())
-XRAPIDAPIHOST = os.environ.get("XRAPIDAPIHOST")
 XRAPIDAPIKEY = os.environ.get("XRAPIDAPIKEY")
 
 today = date.today()
@@ -16,17 +15,12 @@ month = today.strftime("%m")
 year = today.strftime("%Y")
 
 def get_titles():
-    url = "https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi"
+    url = "https://unogs-unogs-v1.p.rapidapi.com/search/titles"
     headers = {
-       "x-rapidapi-host": "unogs-unogs-v1.p.rapidapi.com",
-       "x-rapidapi-key": "%s" % XRAPIDAPIKEY
+       "X-RapidAPI-Host": "unogs-unogs-v1.p.rapidapi.com",
+       "X-RapidAPI-Key": "%s" % XRAPIDAPIKEY
     }
-    querystring = {
-		"q":"get:exp:IT",
-		"t":"ns",
-		"st":"adv",
-		"p":"1"
-	}
+    querystring = {"expiring":"yes","country_list":"269","order_by":"date"}
     response = requests.request("GET", url, headers=headers, params=querystring)
     return response.json()
 

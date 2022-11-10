@@ -22,18 +22,16 @@ $ pip install -r requirements.txt
 ### (3) uNoGS API Credentials
 1. Open the `.sample.env` file from the root folder on your local machine.
 2. Subscribe to [RapidAPI uNoGS Basic Plan](https://rapidapi.com/unogs/api/unogs/) and create a new application. The Basic Plan permits 100 requests/day for $0.00/month (see [Pricing table](https://rapidapi.com/unogs/api/unogs/pricing)).
-3. Fill out the env file with XRAPIDAPIHOST and XRAPIDAPIKEY obtained from RapidAPI and save this file as `.env`. **Do not post these details anywhere publically.**
+3. Fill out the env file with XRAPIDAPIKEY obtained from RapidAPI and save this file as `.env`. **Do not post these details anywhere publically.**
 
 Example:
 ```
-XRAPIDAPIHOST=unogs-unogs-v1.p.rapidapi.com
 XRAPIDAPIKEY=thisisasecret
 ```
 
 ### (4) GitHub Actions
 1. Go to the settings of your forked repo and click on Secrets.
 2. You will need to create the following secrets:
-  *  **XRAPIDAPIHOST** - Use the same XRAPIDAPIHOST from your `.env`.
   *  **XRAPIDAPIKEY** - Use the same XRAPIDAPIKEY from your `.env`
 
 ---
