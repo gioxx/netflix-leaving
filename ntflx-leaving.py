@@ -51,7 +51,7 @@ def main():
     if not os.path.exists(os.path.join(year,month)):
         os.makedirs(os.path.join(year,month))
 
-    if "COUNT" in leavingtitles:
+    if "total" in leavingtitles:
         print("Title list: OK")
         # Backup JSON file
         with open(os.path.join(year,year+month+day+".json"), 'w') as f:
