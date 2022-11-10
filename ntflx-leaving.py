@@ -16,7 +16,7 @@ month = today.strftime("%m")
 year = today.strftime("%Y")
 
 def get_titles():
-    url = "https://%s/aaapi.cgi" % XRAPIDAPIHOST
+    url = "https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi"
     headers = {
        "x-rapidapi-host": "unogs-unogs-v1.p.rapidapi.com",
        "x-rapidapi-key": "%s" % XRAPIDAPIKEY
