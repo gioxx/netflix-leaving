@@ -1,6 +1,6 @@
-			$.each(data.ITEMS, function(i, f) {
-				var tblRow = "<tr>" + "<td><img src='" + f.image + "' /></td>" +
-					"<td>" + f.title + "</td>" + "<td>" + f.type + "</td>" + "<td><a href='https://www.imdb.com/title/" + f.imdbid + "/'>link</a></td>" + "<td>" + f.runtime + "</td>" + "<td>" + f.released + "</td>" + "<td>" + f.unogsdate + "</td>" + "</tr>"
+			$.each(data.results, function(i, f) {
+				var tblRow = "<tr>" + "<td><img src='" + f.img + "' /></td>" +
+					"<td>" + f.title + "</td>" + "<td>" + f.title_type + "</td>" + "<td><a href='https://www.imdb.com/title/" + f.imdb_id + "/'>link</a></td>" + "<td>" + f.runtime + "</td>" + "<td>" + f.year + "</td>" + "<td>" + f.unogsdate + "</td>" + "</tr>"
 					$(tblRow).appendTo("#titlesdata tbody");
  			});
 		});

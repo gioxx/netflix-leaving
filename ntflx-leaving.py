@@ -20,7 +20,7 @@ def get_titles():
        "X-RapidAPI-Host": "unogs-unogs-v1.p.rapidapi.com",
        "X-RapidAPI-Key": "%s" % XRAPIDAPIKEY
     }
-    querystring = {"expiring":"yes","country_list":"269","order_by":"date"}
+    querystring = {"expiring":"true","country_andorunique":"unique","country_list":"269","order_by":"date_asc"}
     response = requests.request("GET", url, headers=headers, params=querystring)
     return response.json()
 
