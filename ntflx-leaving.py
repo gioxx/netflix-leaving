@@ -45,7 +45,7 @@ def makewebpage(json):
     return response
 
 def main():
-    if XRAPIDAPIHOST is None or XRAPIDAPIKEY is None:
+    if XRAPIDAPIKEY is None:
         print("Environment variables have not been loaded!")
         return
 
