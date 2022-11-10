@@ -18,7 +18,7 @@ year = today.strftime("%Y")
 def get_titles():
     url = "https://%s/aaapi.cgi" % XRAPIDAPIHOST
     headers = {
-       "x-rapidapi-host": "%s" % XRAPIDAPIHOST,
+       "x-rapidapi-host": "unogs-unogs-v1.p.rapidapi.com",
        "x-rapidapi-key": "%s" % XRAPIDAPIKEY
     }
     querystring = {
