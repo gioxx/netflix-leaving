@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  execute-cron:
+  titles-expiring:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -15,7 +15,7 @@ jobs:
       - name: Setup Python Environment
         uses: actions/setup-python@v4
         with:
-          python-version: 3.8
+          python-version: "3.10"
 
       - name: Install Requirements
         run: pip install -r requirements.txt
@@ -28,12 +28,12 @@ jobs:
 
       - name: Get Daily Date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y%m%d')"
+        run: echo "date=$(date +'%Y%m%d')" >> $GITHUB_ENV
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Daily-${{ steps.date.outputs.date }}
+          commit_message: Daily-${{ env.date }}
           push_options: '--force'
           skip_dirty_check: true
           skip_fetch: true
