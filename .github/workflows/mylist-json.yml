@@ -15,9 +15,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Python Environment
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5.0.0
         with:
-          python-version: 3.8
+          python-version: "3.10"
 
       - name: Install Requirements
         run: |
@@ -30,7 +30,7 @@ jobs:
           python mylist-generate.py
           
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5.0.0
         with:
           commit_message: Update My List JSON file
           push_options: '--force'

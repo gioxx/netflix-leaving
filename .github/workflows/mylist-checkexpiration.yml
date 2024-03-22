@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.1
 
       - name: Check titles (from my list) expiring on Netflix
         id: check_titlesexpiration
@@ -28,7 +28,7 @@ jobs:
       - name: Commit changes
         id: commit_changes
         if: env.Expiring != 'None'
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5.0.0
         with:
           commit_message: MyList Expirations Update ${{ steps.date.outputs.date }}
           push_options: '--force'
@@ -36,15 +36,3 @@ jobs:
           skip_fetch: true
           skip_checkout: true
           disable_globbing: true
-  
-      - name: Tweet NMF
-        if: env.Expiring != 'None'
-        uses: snow-actions/tweet@v1.1.1
-        env:
-          CONSUMER_API_KEY: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
-          CONSUMER_API_SECRET_KEY: ${{ secrets.TWITTER_CONSUMER_API_SECRET_KEY }}
-          ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-          ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
-        with:
-          status: |
-            Ciao @gioxx, ci sono dei titoli che stanno per scadere nella tua lista! Dai un'occhiata a https://gioxx.github.io/netflix-leaving/mylist/mylist-leaving.html
