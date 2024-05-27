@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link type="text/css" media="screen" rel="stylesheet" href="../stylesheets/main.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" href="https://netflix.com/favicon.ico" />
+<title>Titoli Netflix in scadenza</title>
+</head>
+
+<body>
+<div class="header">Titoli in scadenza su Netflix</div>
+<div class="subheader"><img src="https://twitter.com/favicon.ico" class="icon"> <a href="https://twitter.com/gioxx">@gioxx</a> <span>|</span> <img src="https://gioxx.org/favicon.ico" class="icon"> <a href="https://gioxx.org">Gioxx's Wall</a></div>
+<div class="styled-table">
+	<table cellspacing="0" id="titlesdata">
+		<thead>
+			<th>Poster</th>
+			<th>Titolo</th>
+			<th>Tipo</th>
+			<th>IMDB</th>
+			<th>Durata</th>
+			<th>Rilasciato nel</th>
+			<th>Scade il</th>
+    </thead>
+		<tbody>
+
+		</tbody>
+	</table>
+
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+<script>
+	$(function() {
+	var titles = [];
+	$.getJSON('20240527.json', function(data) {
+			$.each(data.results, function(i, f) {
+				var tblRow = "<tr>" + "<td><img src='" + f.img + "' /></td>" +
+					"<td>" + f.title + "</td>" + "<td>" + f.title_type + "</td>" + "<td><a href='https://www.imdb.com/title/" + f.imdb_id + "/'>link</a></td>" + "<td>" + f.runtime + "</td>" + "<td>" + f.year + "</td>" + "<td>" + f.unogsdate + "</td>" + "</tr>"
+					$(tblRow).appendTo("#titlesdata tbody");
+ 			});
+		});
+	});
+</script>
+
+</body>
+</html>
