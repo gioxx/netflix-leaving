@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Netflix in scadenza • Italia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Aggiornato dal workflow GitHub Actions</p>
+        <h1>Scadenze Netflix — Italia</h1>
+        <p class="lede">Lista quotidiana dei titoli che usciranno dal catalogo italiano. Dati da uNoGS NG via RapidAPI.</p>
+      </div>
+      <div class="meta">
+        <div id="last-sync">Sync: sconosciuto</div>
+        <div id="total">0 titoli</div>
+      </div>
+    </header>
+
+    <section class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Titolo</th>
+            <th>Tipo</th>
+            <th>Scade il</th>
+            <th>Paesi</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <div id="empty" class="empty">Carico i dati…</div>
+    </section>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

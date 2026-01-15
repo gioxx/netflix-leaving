@@ -1,0 +1,130 @@
+:root {
+  --bg: #0b0b10;
+  --fg: #f4f6fb;
+  --muted: #9aa0af;
+  --accent: #e50914;
+  --card: #12121a;
+  --border: #1f1f2b;
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(229, 9, 20, 0.14), transparent 30%), var(--bg);
+  color: var(--fg);
+}
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(229, 9, 20, 0.2), rgba(229, 9, 20, 0.08));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.hero h1 {
+  margin: 6px 0;
+  letter-spacing: -0.02em;
+}
+
+.hero .lede {
+  margin: 0;
+  color: var(--muted);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+  color: var(--accent);
+  margin: 0;
+}
+
+.meta {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.meta div {
+  padding: 10px 12px;
+  background: var(--card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  text-align: right;
+}
+
+.table-wrap {
+  margin-top: 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+th, td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+tbody tr:hover {
+  background: rgba(229, 9, 20, 0.08);
+}
+
+.pill {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+  font-size: 12px;
+}
+
+.empty {
+  padding: 18px;
+  text-align: center;
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  th:nth-child(2), td:nth-child(2),
+  th:nth-child(4), td:nth-child(4) {
+    display: none;
+  }
+}

@@ -6,6 +6,7 @@ Funzione core: esportare ogni giorno la lista dei titoli Netflix in scadenza (ca
 ## Cosa c'è dentro
 - `python -m netflix_leaving` interroga l'API uNoGS NG (RapidAPI) per le scadenze e scrive `data/YYYY/MM/YYYYMMDD.json` + `data/latest.json`.
 - GitHub Action giornaliera (`.github/workflows/daily.yml`) che esegue lo script e committa solo se ci sono cambiamenti.
+- Static site (`web/`) pubblicato su GitHub Pages (`.github/workflows/deploy.yml`) che legge `data/latest.json`.
 
 ## Setup rapido
 ```bash
@@ -29,6 +30,9 @@ NETFLIX_MAX_DETAIL=50       # opzionale, limita le chiamate di dettaglio per con
 XRAPIDAPIKEY=... python -m netflix_leaving --output data
 ```
 I file finiscono in `data/` e `data/latest.json`.
+
+### GitHub Pages
+Il sito statico legge `data/latest.json` e viene pubblicato automaticamente dal workflow `deploy.yml` su GitHub Pages. URL: `https://<user>.github.io/netflix-leaving/` (sostituisci `<user>` con il tuo account).
 
 ## GitHub Actions
 - **daily** (`.github/workflows/daily.yml`): ogni giorno, installa Python 3.12, esegue `python -m netflix_leaving`, committa solo se i JSON cambiano.
