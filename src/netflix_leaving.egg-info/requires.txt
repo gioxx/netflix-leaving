@@ -1,0 +1,5 @@
+requests>=2.32.4
+python-dotenv>=1.0.1
+
+[dev]
+pytest>=7.4
