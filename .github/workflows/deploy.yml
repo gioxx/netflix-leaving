@@ -23,6 +23,10 @@ jobs:
           mkdir -p dist
           cp -R web/* dist/
           if [ -d data ]; then mkdir -p dist/data && cp -R data/* dist/data/; fi
+          if [ ! -f dist/data/latest.json ]; then
+            mkdir -p dist/data
+            echo '{"results":[],"fetched_at":null}' > dist/data/latest.json
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

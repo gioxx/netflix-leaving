@@ -32,7 +32,9 @@ XRAPIDAPIKEY=... python -m netflix_leaving --output data
 I file finiscono in `data/` e `data/latest.json`.
 
 ### GitHub Pages
-Il sito statico legge `data/latest.json` e viene pubblicato automaticamente dal workflow `deploy.yml` su GitHub Pages. URL: `https://<user>.github.io/netflix-leaving/` (sostituisci `<user>` con il tuo account).
+- In Settings → Pages imposta “Build and deployment” su **GitHub Actions** (non branch/static).
+- Il sito statico legge `data/latest.json` e viene pubblicato automaticamente dal workflow `deploy.yml` su GitHub Pages. URL: `https://<user>.github.io/netflix-leaving/` (sostituisci `<user>` con il tuo account).
+- Se `data/latest.json` non esiste ancora, il deploy crea un placeholder vuoto.
 
 ## GitHub Actions
 - **daily** (`.github/workflows/daily.yml`): ogni giorno, installa Python 3.12, esegue `python -m netflix_leaving`, committa solo se i JSON cambiano.

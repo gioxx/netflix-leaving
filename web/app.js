@@ -43,11 +43,12 @@ const render = (data) => {
 const loadData = async () => {
   try {
     const res = await fetch("./data/latest.json", { cache: "no-store" });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status} su data/latest.json`);
     const payload = await res.json();
     render(payload);
   } catch (err) {
     empty.textContent = `Errore nel caricamento: ${err.message}`;
+    console.error(err);
   }
 };
 
