@@ -1,5 +1,8 @@
 name: Titles expiring on Netflix
 
+permissions:
+  contents: write
+
 on:
   schedule:
   - cron: '00 8 * * *'
