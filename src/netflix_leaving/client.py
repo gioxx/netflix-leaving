@@ -108,7 +108,7 @@ def _decorate_results(results: List[Dict[str, Any]], country: str, settings: Set
             entry["synopsis"] = detail.get("synopsis") or detail.get("imdbplot")
             entry["rating"] = detail.get("imdbrating") or detail.get("avgrating")
             entry["imdbid"] = detail.get("imdbid")
-            runtime_val = detail.get("netflixruntime") or detail.get("imdbruntime")
+            runtime_val = detail.get("imdbruntime") or detail.get("netflixruntime")
             if isinstance(runtime_val, (int, float)):
                 entry["runtime"] = int(round(runtime_val / 60))
             else:
