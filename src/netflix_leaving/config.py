@@ -18,7 +18,7 @@ class Settings:
         if not api_key:
             raise RuntimeError("Missing XRAPIDAPIKEY environment variable.")
 
-        api_host = os.environ.get("XRAPIDAPIHOST", cls.api_host)
+        api_host = os.environ.get("XRAPIDAPIHOST") or cls.api_host
         country = os.environ.get("NETFLIX_COUNTRY", cls.country)
         try:
             max_detail = int(os.environ.get("NETFLIX_MAX_DETAIL", cls.max_detail_requests))
