@@ -3,6 +3,8 @@ const total = document.getElementById("total");
 const lastSync = document.getElementById("last-sync");
 const empty = document.getElementById("empty");
 const searchInput = document.getElementById("search");
+const genreFilter = document.getElementById("genre-filter");
+const ratingFilter = document.getElementById("rating-filter");
 const sortState = { key: "date", dir: "asc" };
 let results = [];
 
@@ -34,8 +36,18 @@ const formatRating = (value) => {
 
 const applyFilters = () => {
   const term = (searchInput.value || "").toLowerCase();
+  const selectedGenre = genreFilter.value;
+  const minRating = Number.parseFloat(ratingFilter.value || "0");
   const filtered = results.filter((item) => {
-    return (item.title || "").toLowerCase().includes(term);
+    const matchesTitle = (item.title || "").toLowerCase().includes(term);
+    const genres = (item.genre || "")
+      .split(",")
+      .map((g) => g.trim().toLowerCase())
+      .filter(Boolean);
+    const matchesGenre = selectedGenre === "all" || genres.includes(selectedGenre.toLowerCase());
+    const ratingVal = Number.parseFloat(item.rating) || 0;
+    const matchesRating = ratingVal >= minRating;
+    return matchesTitle && matchesGenre && matchesRating;
   });
 
   total.textContent = `${filtered.length} titoli`;
@@ -82,7 +94,7 @@ const applyFilters = () => {
     tr.innerHTML = `
       <td><div class="poster">${poster ? `<img src="${poster}" alt="">` : `<span class="placeholder">${placeholder}</span>`}</div></td>
       <td>${item.title || "Titolo n/d"}</td>
-      <td>${item.genre || "—"}</td>
+      <td><span class="genre-text">${item.genre || "—"}</span></td>
       <td>${formatDuration(item.runtime)}</td>
       <td>${formatRating(item.rating)}</td>
       <td>${formatDate(item.expiredate || item.unogsdate)}</td>
@@ -97,6 +109,23 @@ const render = (data) => {
   lastSync.textContent = fetchedAt && !Number.isNaN(fetchedAt.getTime())
     ? fetchedAt.toLocaleString("it-IT")
     : "sconosciuto";
+
+  // populate genre filter
+  const allGenres = new Set();
+  results.forEach((r) => {
+    (r.genre || "")
+      .split(",")
+      .map((g) => g.trim())
+      .filter(Boolean)
+      .forEach((g) => allGenres.add(g));
+  });
+  genreFilter.innerHTML = '<option value="all">Tutti</option>';
+  [...allGenres].sort((a, b) => a.localeCompare(b)).forEach((g) => {
+    const opt = document.createElement("option");
+    opt.value = g;
+    opt.textContent = g;
+    genreFilter.appendChild(opt);
+  });
 
   applyFilters();
 };
@@ -116,6 +145,8 @@ const loadData = async () => {
 loadData();
 
 searchInput.addEventListener("input", applyFilters);
+genreFilter.addEventListener("change", applyFilters);
+ratingFilter.addEventListener("change", applyFilters);
 
 document.querySelectorAll("th[data-sort]").forEach((th) => {
   th.style.cursor = "pointer";

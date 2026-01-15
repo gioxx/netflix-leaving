@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Netflix in scadenza • Italia</title>
+  <link rel="icon" href="https://netflix.com/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
@@ -16,7 +17,7 @@
         <p class="eyebrow">Sync: <span id="last-sync">sconosciuto</span></p>
         <h1>Scadenze Netflix — Italia</h1>
         <p class="lede">Lista quotidiana dei titoli che usciranno dal catalogo italiano.<br />
-          <small>Dati da uNoGS NG via RapidAPI.</small>
+          <small>Dati forniti da uNoGS NG via RapidAPI.</small>
         </p>
       </div>
       <div class="meta">
@@ -28,6 +29,22 @@
       <label class="control">
         <span>Filtra titolo</span>
         <input type="search" id="search" placeholder="Cerca per titolo..." />
+      </label>
+      <label class="control">
+        <span>Genere</span>
+        <select id="genre-filter">
+          <option value="all">Tutti</option>
+        </select>
+      </label>
+      <label class="control">
+        <span>Rating minimo</span>
+        <select id="rating-filter">
+          <option value="0">Qualsiasi</option>
+          <option value="5">≥ 5.0</option>
+          <option value="6">≥ 6.0</option>
+          <option value="7">≥ 7.0</option>
+          <option value="8">≥ 8.0</option>
+        </select>
       </label>
     </section>
 

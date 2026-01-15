@@ -105,7 +105,7 @@ tbody tr:hover {
 
 .controls {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 12px;
   margin: 18px 0;
 }
@@ -128,8 +128,8 @@ tbody tr:hover {
 }
 
 .poster {
-  width: 72px;
-  height: 44px;
+  width: 96px;
+  height: 56px;
   border-radius: 10px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.06);
@@ -150,6 +150,11 @@ tbody tr:hover {
   color: var(--muted);
   font-weight: 700;
   font-size: 18px;
+}
+
+.genre-text {
+  font-size: 13px;
+  color: var(--muted);
 }
 
 .pill {
