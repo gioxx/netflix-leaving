@@ -68,8 +68,8 @@ const render = (data) => {
   results = Array.isArray(data.results) ? data.results : [];
   const fetchedAt = data.fetched_at ? new Date(data.fetched_at) : null;
   lastSync.textContent = fetchedAt && !Number.isNaN(fetchedAt.getTime())
-    ? `Sync: ${fetchedAt.toLocaleString("it-IT")}`
-    : "Sync: sconosciuto";
+    ? fetchedAt.toLocaleString("it-IT")
+    : "sconosciuto";
 
   // populate country filter
   const allCountries = new Set();
