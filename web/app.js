@@ -107,10 +107,25 @@ const applyFilters = () => {
   sorted.forEach((item) => {
     const poster = item.img || item.poster || "";
     const placeholder = (item.title || "?").trim().charAt(0).toUpperCase();
+    const imdbId = item.imdbid || item.imdb_id;
+    const netflixLink = item.netflixid ? `https://www.netflix.com/title/${item.netflixid}` : null;
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td><div class="poster">${poster ? `<img src="${poster}" alt="">` : `<span class="placeholder">${placeholder}</span>`}</div></td>
-      <td>${item.imdbid ? `<a href="https://www.imdb.com/title/${item.imdbid}/" target="_blank" rel="noopener noreferrer">${item.title || "Titolo n/d"}</a>` : (item.title || "Titolo n/d")}</td>
+      <td>
+        ${
+          netflixLink
+            ? `<a href="${netflixLink}" target="_blank" rel="noopener noreferrer">${item.title || "Titolo n/d"}</a>`
+            : imdbId
+              ? `<a href="https://www.imdb.com/title/${imdbId}/" target="_blank" rel="noopener noreferrer">${item.title || "Titolo n/d"}</a>`
+              : (item.title || "Titolo n/d")
+        }
+        ${
+          imdbId
+            ? `<a class="imdb-link" href="https://www.imdb.com/title/${imdbId}/" target="_blank" rel="noopener noreferrer">IMDB</a>`
+            : ""
+        }
+      </td>
       <td><span class="genre-text">${item.genre || "—"}</span></td>
       <td>${formatDuration(item.runtime)}</td>
       <td>${formatRating(item.rating)}</td>

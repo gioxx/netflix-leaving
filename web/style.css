@@ -157,6 +157,20 @@ tbody tr:hover {
   color: var(--muted);
 }
 
+.imdb-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 6px;
+  margin-left: 6px;
+  font-size: 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--fg);
+}
+
 .pill {
   display: inline-block;
   padding: 4px 8px;
@@ -183,6 +197,7 @@ tbody tr:hover {
   bottom: 16px;
   width: 44px;
   height: 44px;
+  z-index: 10;
   border-radius: 50%;
   border: 1px solid var(--border);
   background: var(--card);
