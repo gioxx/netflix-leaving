@@ -191,6 +191,15 @@ tbody tr:hover {
   pointer-events: all !important;
 }
 
+.table a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.table a:hover {
+  text-decoration: underline;
+}
+
 #scroll-top {
   position: fixed;
   right: 16px;
