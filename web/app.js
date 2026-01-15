@@ -3,7 +3,6 @@ const total = document.getElementById("total");
 const lastSync = document.getElementById("last-sync");
 const empty = document.getElementById("empty");
 const searchInput = document.getElementById("search");
-const countryFilter = document.getElementById("country-filter");
 const sortState = { key: "date", dir: "asc" };
 let results = [];
 
@@ -14,13 +13,29 @@ const formatDate = (value) => {
   return parsed.toLocaleDateString("it-IT", { day: "2-digit", month: "short", year: "numeric" });
 };
 
+const formatDuration = (runtime) => {
+  if (typeof runtime === "string" && runtime.includes("min")) {
+    const parsed = parseInt(runtime, 10);
+    return Number.isNaN(parsed) ? "n/d" : `${parsed} min`;
+  }
+  const minutes = Number.parseInt(runtime, 10);
+  if (!minutes || minutes <= 0) return "n/d";
+  if (minutes < 60) return `${minutes} min`;
+  const hours = Math.floor(minutes / 60);
+  const mins = minutes % 60;
+  return mins ? `${hours}h ${mins}m` : `${hours}h`;
+};
+
+const formatRating = (value) => {
+  const num = Number.parseFloat(value);
+  if (!num || Number.isNaN(num)) return "n/d";
+  return num.toFixed(1);
+};
+
 const applyFilters = () => {
   const term = (searchInput.value || "").toLowerCase();
-  const countrySel = countryFilter.value;
   const filtered = results.filter((item) => {
-    const matchTitle = (item.title || "").toLowerCase().includes(term);
-    const matchCountry = countrySel === "all" || (item.countrycodes || []).includes(countrySel);
-    return matchTitle && matchCountry;
+    return (item.title || "").toLowerCase().includes(term);
   });
 
   total.textContent = `${filtered.length} titoli`;
@@ -39,10 +54,20 @@ const applyFilters = () => {
         ? (a.title || "").localeCompare(b.title || "")
         : (b.title || "").localeCompare(a.title || "");
     }
-    if (sortState.key === "country") {
-      const ca = (a.countrycodes || []).join(", ");
-      const cb = (b.countrycodes || []).join(", ");
-      return sortState.dir === "asc" ? ca.localeCompare(cb) : cb.localeCompare(ca);
+    if (sortState.key === "genre") {
+      return sortState.dir === "asc"
+        ? (a.genre || "").localeCompare(b.genre || "")
+        : (b.genre || "").localeCompare(a.genre || "");
+    }
+    if (sortState.key === "rating") {
+      const ra = Number.parseFloat(a.rating) || 0;
+      const rb = Number.parseFloat(b.rating) || 0;
+      return sortState.dir === "asc" ? ra - rb : rb - ra;
+    }
+    if (sortState.key === "runtime") {
+      const ra = typeof a.runtime === "number" ? a.runtime : parseInt(a.runtime, 10) || 0;
+      const rb = typeof b.runtime === "number" ? b.runtime : parseInt(b.runtime, 10) || 0;
+      return sortState.dir === "asc" ? ra - rb : rb - ra;
     }
     // default date
     const da = a.expiredate || "";
@@ -57,8 +82,10 @@ const applyFilters = () => {
     tr.innerHTML = `
       <td><div class="poster">${poster ? `<img src="${poster}" alt="">` : `<span class="placeholder">${placeholder}</span>`}</div></td>
       <td>${item.title || "Titolo n/d"}</td>
+      <td>${item.genre || "—"}</td>
+      <td>${formatDuration(item.runtime)}</td>
+      <td>${formatRating(item.rating)}</td>
       <td>${formatDate(item.expiredate || item.unogsdate)}</td>
-      <td>${(item.countrycodes || []).join(", ") || "—"}</td>
     `;
     rows.appendChild(tr);
   });
@@ -70,17 +97,6 @@ const render = (data) => {
   lastSync.textContent = fetchedAt && !Number.isNaN(fetchedAt.getTime())
     ? fetchedAt.toLocaleString("it-IT")
     : "sconosciuto";
-
-  // populate country filter
-  const allCountries = new Set();
-  results.forEach((r) => (r.countrycodes || []).forEach((c) => allCountries.add(c)));
-  countryFilter.innerHTML = '<option value="all">Tutti</option>';
-  [...allCountries].sort().forEach((code) => {
-    const opt = document.createElement("option");
-    opt.value = code;
-    opt.textContent = code;
-    countryFilter.appendChild(opt);
-  });
 
   applyFilters();
 };
@@ -100,7 +116,6 @@ const loadData = async () => {
 loadData();
 
 searchInput.addEventListener("input", applyFilters);
-countryFilter.addEventListener("change", applyFilters);
 
 document.querySelectorAll("th[data-sort]").forEach((th) => {
   th.style.cursor = "pointer";
@@ -110,7 +125,7 @@ document.querySelectorAll("th[data-sort]").forEach((th) => {
       sortState.dir = sortState.dir === "asc" ? "desc" : "asc";
     } else {
       sortState.key = key;
-      sortState.dir = key === "title" ? "asc" : "asc";
+      sortState.dir = "asc";
     }
     applyFilters();
   });

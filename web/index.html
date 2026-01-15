@@ -29,12 +29,6 @@
         <span>Filtra titolo</span>
         <input type="search" id="search" placeholder="Cerca per titolo..." />
       </label>
-      <label class="control">
-        <span>Paese</span>
-        <select id="country-filter">
-          <option value="all">Tutti</option>
-        </select>
-      </label>
     </section>
 
     <section class="table-wrap">
@@ -43,8 +37,10 @@
           <tr>
             <th data-sort="poster">Poster</th>
             <th data-sort="title">Titolo</th>
+            <th data-sort="genre">Genere</th>
+            <th data-sort="runtime">Durata</th>
+            <th data-sort="rating">Rating</th>
             <th data-sort="date">Scade il</th>
-            <th data-sort="country">Paesi</th>
           </tr>
         </thead>
         <tbody id="rows"></tbody>
