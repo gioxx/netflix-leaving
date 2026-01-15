@@ -9,7 +9,7 @@ class Settings:
     api_key: str
     api_host: str = "unogsng.p.rapidapi.com"
     country: str = "269"  # Italy by default
-    max_detail_requests: int = 150
+    max_detail_requests: int = 50
 
     @classmethod
     def from_env(cls) -> "Settings":
