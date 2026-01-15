@@ -1,6 +1,2 @@
-certifi==2024.7.4
-chardet==4.0.0
-idna==3.7
-python-dotenv==0.16.0
-requests==2.32.4
-urllib3==2.6.3
+python-dotenv>=1.0.1
+requests>=2.32.3

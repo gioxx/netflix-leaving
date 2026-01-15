@@ -1,0 +1,10 @@
+{
+  "name": "netflix-leaving",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Daily radar dei titoli Netflix in scadenza con frontend statico.",
+  "scripts": {
+    "build": "rm -rf dist && mkdir -p dist && cp -R web/* dist/ && if [ -d data ]; then mkdir -p dist/data && cp -R data dist/; fi",
+    "dev": "python3 -m http.server 4173 --directory ."
+  }
+}

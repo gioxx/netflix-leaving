@@ -1,58 +1,76 @@
-import requests
-import urllib.request
-import base64
 import json
-from datetime import date
+from datetime import datetime
+from pathlib import Path
 import os
 
-today = date.today()
-day = today.strftime("%d")
-month = today.strftime("%m")
-year = today.strftime("%Y")
 exportlist_jsn = "mylist-export.json"
 exportlist_leaving = "mylist-leaving.json"
 exportlist_html = "mylist-leaving.html"
+latest_data = Path("..") / "data" / "latest.json"
+fallback_today = Path("..") / datetime.utcnow().strftime("%Y/%m/%Y%m%d.json")
 
-def get_json(path):
-    with open(path, 'r') as f:
-        response = json.load(f)
-    return response
 
-def make_webpage(json):
+def get_json(path: Path):
+    with path.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def make_webpage(json_path: str):
     pre = post = ""
-    with open(os.path.join("include","body-pre")) as fp:
+    with open(os.path.join("include", "body-pre"), encoding="utf-8") as fp:
         pre = fp.read()
-    with open(os.path.join("include","body-post")) as fp:
+    with open(os.path.join("include", "body-post"), encoding="utf-8") as fp:
         post = fp.read()
-    response = pre + "	$.getJSON('" + json + "', function(data) {" + "\n" + post
-    return response
+    return pre + "\t$.getJSON('" + json_path + "', function(data) {\n" + post
 
-todayjson = os.path.join("..",year,year+month+day+".json")
-ntflxList = get_json(todayjson)
-mylist = get_json(exportlist_jsn)
-print("Today JSON entries: {}".format(len(ntflxList["ITEMS"])))
-print("My List JSON entries: {}".format(len(mylist)))
 
-count = 0
-json_list = []
-for vod in ntflxList["ITEMS"]: # https://www.w3schools.com/python/python_for_loops.asp
+def normalize_imdb(item):
+    return item.get("imdbid") or item.get("imdb_id")
+
+
+def select_data_source():
+    if latest_data.exists():
+        return latest_data
+    if fallback_today.exists():
+        return fallback_today
+    raise FileNotFoundError("No netflix data found (expected data/latest.json).")
+
+
+ntflx_list = get_json(select_data_source())
+mylist = get_json(Path(exportlist_jsn))
+
+print(f"Today JSON entries: {len(ntflx_list.get('results', []))}")
+print(f"My List JSON entries: {len(mylist)}")
+
+matches = []
+for vod in ntflx_list.get("results", []):
     for check in mylist:
-        if(vod["imdbid"] == check["imdbid"]):
-            print("Found {} (Netflix ID {})".format(vod["title"], vod["netflixid"]))
-            json_list.append(vod)
-            count += 1
+        if normalize_imdb(vod) == normalize_imdb(check):
+            print(f"Found {vod.get('title')} (Netflix ID {vod.get('netflix_id')})")
+            matches.append(
+                {
+                    "title": vod.get("title"),
+                    "type": vod.get("title_type") or vod.get("type"),
+                    "imdbid": normalize_imdb(vod),
+                    "runtime": vod.get("runtime", 0),
+                    "released": vod.get("year"),
+                    "unogsdate": vod.get("unogsdate") or vod.get("title_date"),
+                    "image": vod.get("img") or vod.get("poster"),
+                }
+            )
 
-if count > 0:
-    with open(exportlist_leaving, "w") as outfile:
-        json.dump(json_list, outfile)
+if matches:
+    with open(exportlist_leaving, "w", encoding="utf-8") as outfile:
+        json.dump(matches, outfile)
     html = make_webpage(exportlist_leaving)
-    with open(exportlist_html, 'w') as fp:
+    with open(exportlist_html, "w", encoding="utf-8") as fp:
         fp.write(html)
 else:
     print("No titles from your list are leaving Netflix")
     try:
-        env_file = os.getenv('GITHUB_ENV')
-        with open(env_file, "a") as ghenv:
-            ghenv.write("Expiring=None")
-    except:
+        env_file = os.getenv("GITHUB_ENV")
+        if env_file:
+            with open(env_file, "a", encoding="utf-8") as ghenv:
+                ghenv.write("Expiring=None")
+    except Exception:
         print("An exception occurred, probably executed not on GitHub.")

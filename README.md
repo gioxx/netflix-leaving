@@ -1,65 +1,59 @@
 # Netflix Titles Leaving
-[![Titles expiring on Netflix](https://github.com/gioxx/netflix-leaving/actions/workflows/daily.yml/badge.svg)](https://github.com/gioxx/netflix-leaving/actions/workflows/daily.yml) [![pages-build-deployment](https://github.com/gioxx/netflix-leaving/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/gioxx/netflix-leaving/actions/workflows/pages/pages-build-deployment)
+[![Titles expiring on Netflix](https://github.com/gioxx/netflix-leaving/actions/workflows/daily.yml/badge.svg)](https://github.com/gioxx/netflix-leaving/actions/workflows/daily.yml) [![Build & Deploy site](https://github.com/gioxx/netflix-leaving/actions/workflows/deploy.yml/badge.svg)](https://github.com/gioxx/netflix-leaving/actions/workflows/deploy.yml)
 
-This script automatically saves titles expiring on Netflix every day, in JSON format that you can use as you see fit. The automation is powered by [GitHub Actions](https://docs.github.com/en/actions) and executes automatically everyday as defined in the [daily.yaml](/.github/workflows/daily.yaml).
+Daily radar dei titoli Netflix in scadenza (catalogo Italia) con JSON storico e frontend statico rosso/nero.
 
-## Initial Set Up (approx: 10 minutes)
-You should not need to make any commits back to the repo. You need to obtain an API token for  uNoGS (from RapidAPI) and setting up the environment variables in GitHub secrets in order to allow `ntflx-leaving.py` to execute properly. You need to fork this repo in order to have your own instance of GitHub Actions.
+## Cosa c'è dentro
+- **Raccolta dati**: `python -m netflix_leaving` interroga l'API uNoGS (RapidAPI), valida la risposta e salva `data/YYYY/MM/YYYYMMDD.json` + `data/latest.json`. Scrive solo se cambia.
+- **Frontend**: pagina unica in `web/` (grid di card, ricerca, filtri per tipo e IMDB minimo). Nessun jQuery.
+- **Automazioni**: GitHub Actions giornaliera per dati, build+deploy su GitHub Pages.
 
-### (1) Create a Fork
-Start off with simple fork by clicking on the "Fork" button. Once you've done that, you can use your favorite git client to clone your repo or use the command line:
-```bash
-# Clone your fork to your local machine
-$ git clone https://github.com/<your-username>/netflix-leaving.git
-```
+## Setup rapido
+1) **Clona il repo**  
+   ```bash
+   git clone https://github.com/<user>/netflix-leaving.git
+   cd netflix-leaving
+   ```
 
-### (2) Libraries
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all of the required libraries. You could use this with a [virtual environment](https://docs.python.org/3/library/venv.html) if required.
-```bash
-$ pip install -r requirements.txt
-```
+2) **Python**  
+   ```bash
+   python3 -m venv .venv && source .venv/bin/activate
+   pip install -r requirements.txt
+   pip install -e .
+   ```
 
-### (3) uNoGS API Credentials
-1. Open the `.sample.env` file from the root folder on your local machine.
-2. Subscribe to [RapidAPI uNoGS Basic Plan](https://rapidapi.com/unogs/api/unogs/) and create a new application. The Basic Plan permits 100 requests/day for $0.00/month (see [Pricing table](https://rapidapi.com/unogs/api/unogs/pricing)).
-3. Fill out the env file with XRAPIDAPIKEY obtained from RapidAPI and save this file as `.env`. **Do not post these details anywhere publically.**
+3) **Credenziali uNoGS (RapidAPI)**  
+   - Sottoscrivi il piano Basic di [uNoGS NG su RapidAPI](https://rapidapi.com/unogs/api/unogs/).
+   - Crea `.env` con:
+     ```
+     XRAPIDAPIKEY=la_tua_chiave
+     XRAPIDAPIHOST=unogsng.p.rapidapi.com
+     NETFLIX_MAX_DETAIL=150     # opzionale, limita le chiamate di dettaglio per contenere i costi
+     ```
 
-Example:
-```
-XRAPIDAPIKEY=thisisasecret
-```
+4) **Esegui manualmente**  
+   ```bash
+   XRAPIDAPIKEY=... python -m netflix_leaving --output data
+   ```
+   I file finiscono in `data/` e `data/latest.json`.
 
-### (4) GitHub Actions
-1. Go to the settings of your forked repo and click on Secrets.
-2. You will need to create the following secrets:
-  *  **XRAPIDAPIKEY** - Use the same XRAPIDAPIKEY from your `.env`
+5) **Frontend locale**  
+   ```bash
+   npm run build       # copia web/ e data/ in dist/
+   python3 -m http.server 4173 --directory dist
+   # apri http://localhost:4173
+   ```
 
----
+## GitHub Actions
+- **daily** (`.github/workflows/daily.yml`): ogni giorno, installa Python 3.12, esegue `python -m netflix_leaving`, committa solo se i JSON cambiano.
+- **deploy** (`.github/workflows/deploy.yml`): su push o al termine di `daily`, copia `web/` + `data/` in `dist/` e pubblica su GitHub Pages.
 
-## Manual Execution via GitHub Actions
-1. Go to Actions in your forked repo.
-2. Click on "**Titles expiring on Netflix**"
-3. Click on "**Run workflow**" which will bring up a drop down menu.
+Configura i secret nel tuo fork:  
+ - `XRAPIDAPIKEY` (obbligatorio)  
+ - `XRAPIDAPIHOST` (opzionale, default `unogs-unogs-v1.p.rapidapi.com`)
 
-Any execution errors can be found from within the actions tab of your forked repo.
-
-## Local Execution
-Alternatively, you can store the **XRAPIDAPIHOST**, **XRAPIDAPIKEY** back into your `.env` file and execute `ntflx-leaving.py` on your machine when required, maybe manually or using a task scheduler. Make sure to have the `.env` and `ntflx-leaving.py` files in the same directory for this.
-
- ```
-$python ntflx-leaving.py
-```
----
-
-## Next Steps:
- - RSS feed (contains titles are leaving Netflix)
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## Add-on "My list"
+Cartella `mylist/`: genera JSON dal tuo export Netflix e verifica se i tuoi preferiti sono in scadenza usando `data/latest.json`.
 
 ## License
 [MIT](/LICENSE)
-
-## Credits
-https://stackoverflow.com/a/12091134  
-https://stackoverflow.com/a/8024259
