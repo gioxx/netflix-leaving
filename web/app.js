@@ -15,17 +15,29 @@ const formatDate = (value) => {
   return parsed.toLocaleDateString("it-IT", { day: "2-digit", month: "short", year: "numeric" });
 };
 
-const formatDuration = (runtime) => {
-  if (typeof runtime === "string" && runtime.includes("min")) {
-    const parsed = parseInt(runtime, 10);
-    return Number.isNaN(parsed) ? "n/d" : `${parsed} min`;
+const runtimeToMinutes = (runtime) => {
+  if (runtime == null) return null;
+  if (typeof runtime === "number") {
+    const minutes = Math.round(runtime);
+    return minutes > 0 ? minutes : null;
   }
-  const minutes = Number.parseInt(runtime, 10);
-  if (!minutes || minutes <= 0) return "n/d";
-  if (minutes < 60) return `${minutes} min`;
-  const hours = Math.floor(minutes / 60);
-  const mins = minutes % 60;
-  return mins ? `${hours}h ${mins}m` : `${hours}h`;
+  const raw = String(runtime).trim().toLowerCase();
+  // patterns: "119 min", "1h 30m", "1h30m", "90"
+  const hoursMatch = raw.match(/(\d+)\s*h/i);
+  const minsMatch = raw.match(/(\d+)\s*m/i);
+  if (hoursMatch) {
+    const h = parseInt(hoursMatch[1], 10);
+    const m = minsMatch ? parseInt(minsMatch[1], 10) : 0;
+    const total = h * 60 + (Number.isNaN(m) ? 0 : m);
+    return total > 0 ? total : null;
+  }
+  const num = parseInt(raw, 10);
+  return Number.isNaN(num) || num <= 0 ? null : num;
+};
+
+const formatDuration = (runtime) => {
+  const minutes = runtimeToMinutes(runtime);
+  return minutes ? `${minutes} min` : "n/d";
 };
 
 const formatRating = (value) => {
@@ -77,8 +89,8 @@ const applyFilters = () => {
       return sortState.dir === "asc" ? ra - rb : rb - ra;
     }
     if (sortState.key === "runtime") {
-      const ra = typeof a.runtime === "number" ? a.runtime : parseInt(a.runtime, 10) || 0;
-      const rb = typeof b.runtime === "number" ? b.runtime : parseInt(b.runtime, 10) || 0;
+      const ra = runtimeToMinutes(a.runtime) || 0;
+      const rb = runtimeToMinutes(b.runtime) || 0;
       return sortState.dir === "asc" ? ra - rb : rb - ra;
     }
     // default date

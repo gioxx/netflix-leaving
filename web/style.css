@@ -128,8 +128,8 @@ tbody tr:hover {
 }
 
 .poster {
-  width: 96px;
-  height: 56px;
+  width: 140px;
+  height: 80px;
   border-radius: 10px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.06);
