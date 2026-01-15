@@ -34,7 +34,7 @@ jobs:
         run: echo "date=$(date +'%Y%m%d')" >> $GITHUB_ENV
 
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5.0.0
+        uses: stefanzweifel/git-auto-commit-action@v7.1.0
         with:
           commit_message: "chore: data refresh ${{ env.date }}"
           skip_dirty_check: false
