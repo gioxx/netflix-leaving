@@ -46,6 +46,16 @@
           <option value="8">≥ 8.0</option>
         </select>
       </label>
+      <label class="control">
+        <span>Durata max (minuti)</span>
+        <select id="runtime-filter">
+          <option value="0">Qualsiasi</option>
+          <option value="60">≤ 60</option>
+          <option value="90">≤ 90</option>
+          <option value="120">≤ 120</option>
+          <option value="150">≤ 150</option>
+        </select>
+      </label>
     </section>
 
     <section class="table-wrap">
@@ -67,5 +77,6 @@
   </div>
 
   <script type="module" src="./app.js"></script>
+  <button id="scroll-top" aria-label="Torna su">↑</button>
 </body>
 </html>

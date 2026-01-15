@@ -172,6 +172,33 @@ tbody tr:hover {
   color: var(--muted);
 }
 
+.scroll-visible {
+  opacity: 1 !important;
+  pointer-events: all !important;
+}
+
+#scroll-top {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--fg);
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#scroll-top:hover {
+  transform: translateY(-2px);
+}
+
 @media (max-width: 720px) {
   .hero {
     flex-direction: column;

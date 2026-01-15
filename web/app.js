@@ -5,6 +5,8 @@ const empty = document.getElementById("empty");
 const searchInput = document.getElementById("search");
 const genreFilter = document.getElementById("genre-filter");
 const ratingFilter = document.getElementById("rating-filter");
+const runtimeFilter = document.getElementById("runtime-filter");
+const scrollTopBtn = document.getElementById("scroll-top");
 const sortState = { key: "date", dir: "asc" };
 let results = [];
 
@@ -50,6 +52,7 @@ const applyFilters = () => {
   const term = (searchInput.value || "").toLowerCase();
   const selectedGenre = genreFilter.value;
   const minRating = Number.parseFloat(ratingFilter.value || "0");
+  const maxRuntime = Number.parseInt(runtimeFilter.value, 10) || 0;
   const filtered = results.filter((item) => {
     const matchesTitle = (item.title || "").toLowerCase().includes(term);
     const genres = (item.genre || "")
@@ -59,7 +62,9 @@ const applyFilters = () => {
     const matchesGenre = selectedGenre === "all" || genres.includes(selectedGenre.toLowerCase());
     const ratingVal = Number.parseFloat(item.rating) || 0;
     const matchesRating = ratingVal >= minRating;
-    return matchesTitle && matchesGenre && matchesRating;
+    const runtimeMinutes = runtimeToMinutes(item.runtime) || 0;
+    const matchesRuntime = !maxRuntime || (runtimeMinutes && runtimeMinutes <= maxRuntime);
+    return matchesTitle && matchesGenre && matchesRating && matchesRuntime;
   });
 
   total.textContent = `${filtered.length} titoli`;
@@ -105,7 +110,7 @@ const applyFilters = () => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td><div class="poster">${poster ? `<img src="${poster}" alt="">` : `<span class="placeholder">${placeholder}</span>`}</div></td>
-      <td>${item.title || "Titolo n/d"}</td>
+      <td>${item.imdbid ? `<a href="https://www.imdb.com/title/${item.imdbid}/" target="_blank" rel="noopener noreferrer">${item.title || "Titolo n/d"}</a>` : (item.title || "Titolo n/d")}</td>
       <td><span class="genre-text">${item.genre || "—"}</span></td>
       <td>${formatDuration(item.runtime)}</td>
       <td>${formatRating(item.rating)}</td>
@@ -159,6 +164,7 @@ loadData();
 searchInput.addEventListener("input", applyFilters);
 genreFilter.addEventListener("change", applyFilters);
 ratingFilter.addEventListener("change", applyFilters);
+runtimeFilter.addEventListener("change", applyFilters);
 
 document.querySelectorAll("th[data-sort]").forEach((th) => {
   th.style.cursor = "pointer";
@@ -173,3 +179,14 @@ document.querySelectorAll("th[data-sort]").forEach((th) => {
     applyFilters();
   });
 });
+
+const toggleScrollTop = () => {
+  if (window.scrollY > 300) {
+    scrollTopBtn.classList.add("scroll-visible");
+  } else {
+    scrollTopBtn.classList.remove("scroll-visible");
+  }
+};
+
+scrollTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+window.addEventListener("scroll", toggleScrollTop);
