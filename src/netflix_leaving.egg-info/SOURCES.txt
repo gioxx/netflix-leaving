@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/netflix_leaving/__init__.py
+src/netflix_leaving/__main__.py
+src/netflix_leaving/client.py
+src/netflix_leaving/config.py
+src/netflix_leaving/storage.py
+src/netflix_leaving.egg-info/PKG-INFO
+src/netflix_leaving.egg-info/SOURCES.txt
+src/netflix_leaving.egg-info/dependency_links.txt
+src/netflix_leaving.egg-info/requires.txt
+src/netflix_leaving.egg-info/top_level.txt
