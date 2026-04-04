@@ -1,0 +1,211 @@
+{
+  "results": [
+    {
+      "netflixid": 80081705,
+      "title": "Iris",
+      "title_type": "unknown",
+      "expiredate": "2026-05-01",
+      "countrycodes": [
+        "IT"
+      ],
+      "synopsis": "Two friends&#39; lives are changed forever when they are recruited by a top-secret organization tasked with protecting the country from foreign threats.",
+      "rating": 7.9,
+      "imdbid": "tt1757202",
+      "runtime": "60 min",
+      "year": 2009,
+      "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMDY1OTYxNWYtZGUyNC00NDE2LTkxMmItYzFjOTNmZDk4MjA0XkEyXkFqcGdeQXVyMzE4MDkyNTA@._V1_SX300.jpg",
+      "img": "https://occ-0-2851-38.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABeXQkRt-J2XilBHFZT94Tp6hS8v6OpGcgRWxIFyvsMfUMFLjkXGDfc2XxyDlj7jXRshIrD4BOppHgY0wzx9FG0f8UQ.jpg?r=92e",
+      "genre": "Action, Mystery, Romance, Thriller"
+    },
+    {
+      "netflixid": 70213130,
+      "title": "Boys Over Flowers",
+      "title_type": "unknown",
+      "expiredate": "2026-05-01",
+      "countrycodes": [
+        "IT"
+      ],
+      "synopsis": "Unassuming high school girl Jan Di stands up to -- and eventually falls for -- a spoiled rich kid who belongs to the school&#39;s most powerful clique.",
+      "rating": 8.0,
+      "imdbid": "tt1370334",
+      "runtime": "70 min",
+      "year": 2009,
+      "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BZmNmMTdhNzItNjM4ZC00NjgxLWIwNWMtMzkxZWZkZWVjMzZkXkEyXkFqcGdeQXVyMzE4MDkyNTA@._V1_SX300.jpg",
+      "img": "https://occ-0-2851-38.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABcH46e4lXDLo-lFAATl3mE6Ga8uIovVcdKq9egfS1rkGPb1uC9-MS2LswxDTEXXdogELigHPdwvyTupQS2rqptiuJA.jpg?r=c46",
+      "genre": "Comedy, Drama, Romance"
+    },
+    {
+      "netflixid": 81506279,
+      "title": "Old Enough!",
+      "title_type": "unknown",
+      "expiredate": "2026-04-30",
+      "countrycodes": [
+        "IT"
+      ],
+      "synopsis": "Children go on errands all by themselves for the very first time as a camera crew follows along in this beloved, long-running reality show from Japan.",
+      "rating": 6.4,
+      "imdbid": "tt0087837",
+      "runtime": "92 min",
+      "year": 2013,
+      "poster": "https://m.media-amazon.com/images/M/MV5BYzdmNTM0ZTktNjlmNS00YzE5LWI3NzktYWQ5MzYzMDQwZTJkXkEyXkFqcGdeQXVyMTMxMTY0OTQ@._V1_SX300.jpg",
+      "img": "https://occ-0-2851-41.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABY7HiNszXVwER_MsgSfmi9l9lvo_C6Jx_0dJDANKbJPm8Quupq6i8c3eGGVUTxzTsYhduVREQSTO92LYQ1JTRhFIaQ.jpg?r=ca3",
+      "genre": "Drama"
+    },
+    {
+      "netflixid": 81415947,
+      "title": "Let&#39;s Fight Ghost",
+      "title_type": "unknown",
+      "expiredate": "2026-04-21",
+      "countrycodes": [
+        "IT"
+      ],
+      "synopsis": "A med student with a supernatural gift tries to cash in on his abilities by facing off against ghosts, till a wandering spirit brings romance instead.",
+      "rating": 7.9,
+      "imdbid": "tt1139797",
+      "runtime": "114 min",
+      "year": 2021,
+      "poster": "https://m.media-amazon.com/images/M/MV5BOWM4NTY2NTMtZDZlZS00NTgyLWEzZDMtODE3ZGI1MzI3ZmU5XkEyXkFqcGdeQXVyNzI1NzMxNzM@._V1_SX300.jpg",
+      "img": "https://occ-0-4708-64.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABcmgLCxN8dNahdY2kgd1hhcL2a6XrE92x24Bx5h6JFUvH5zMrv6lFWl_aWMt33b6DHvkgsUeDx_8Q1rmopwT3fuF8Rq3S1hrkvFf3uzVv2sb3zrtU-LM1Zy1FfrAKD3nKNyA_RQWrmw.jpg?r=cd0",
+      "genre": "Crime Drama Fantasy Horror Romance"
+    },
+    {
+      "netflixid": 81919125,
+      "title": "Clan",
+      "title_type": "unknown",
+      "expiredate": "2026-04-14",
+      "countrycodes": [
+        "IT"
+      ],
+      "synopsis": "A teen whose family has ties to the Camorra strives to forge his own path after meeting a group of inspiring young people and their judo master.",
+      "rating": 7.9,
+      "imdbid": "tt1783844",
+      "runtime": "50 min",
+      "year": 2024,
+      "poster": "https://m.media-amazon.com/images/M/MV5BZWYxMmMxOTUtNmUwOS00OWNhLTkzYjEtMDM1OTlhMjJkMmVkXkEyXkFqcGdeQXVyMTk0MjQ3Nzk@._V1_SX300.jpg",
+      "img": "https://occ-0-3019-2581.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABWpxydric9HpvXlzbjqF4eX8QNQqCUpoEwfPsQ5v4E_OdZdVbj08_McrDbhRt05n_kGP0CA_GKjbsDkGTEq4lDUHz7ViM19r_h_cwpI6TBJGnFLH4NjcC-UP9Mm6qY0-dn7XkBb2GSuqKtbEwPlnCImnUnwodJbRfdBvxyPCPbZmX7JWMLhGthKVDtvA3VHot6ny87PO4OgzLzwEU6wpx8XRjv0cQ3zXoEdD5wRivkwDKlSJN-TL3lz_LeUzUSmFXnWe8qIOE4b1ggT1W5-wtLkMY9A.jpg?r=5fd",
+      "genre": "Comedy Crime Drama"
+    },
+    {
+      "netflixid": 81044813,
+      "title": "The Secret Life of Pets 2",
+      "title_type": "unknown",
+      "expiredate": "2026-04-09",
+      "countrycodes": [
+        "IT"
+      ],
+      "synopsis": "On a farm outside New York, Max aims to boost his confidence while in the city, Snowball attempts to rescue a tiger cub and Gidget pretends to be a cat.",
+      "rating": 6.5,
+      "imdbid": "tt5113040",
+      "runtime": "86 min",
+      "year": 2019,
+      "poster": "https://m.media-amazon.com/images/M/MV5BMzdlMWQzZmItMDA5Ny00MGFjLTk0MDAtYjgzMmMyNTEwMzdhXkEyXkFqcGdeQXVyODQzNTE3ODc@._V1_SX300.jpg",
+      "img": "https://occ-0-2219-2218.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABZmNYsgnQllNzVjwZ3TvUkimM4KgGiVWZsbpJj_azZKi-cvg4MHAgTfQk3rJTmgIaFYIl-E5DsZzzPjC3QWJZGo1jg.jpg?r=31c",
+      "genre": "Animation, Adventure, Comedy, Family"
+    },
+    {
+      "netflixid": 80095314,
+      "title": "The Secret Life of Pets",
+      "title_type": "unknown",
+      "expiredate": "2026-04-09",
+      "countrycodes": [
+        "IT"
+      ],
+      "synopsis": "After ending up in the outside world, two squabbling pet dogs find common ground against a gang of angry animals preparing an attack on humans.",
+      "rating": 6.5,
+      "imdbid": "tt2709768",
+      "runtime": "87 min",
+      "year": 2016,
+      "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMjIzMzA1OTkzNV5BMl5BanBnXkFtZTgwODE3MjM4NzE@._V1_SX300.jpg",
+      "img": "https://occ-0-768-769.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABbMfPQmUGQTiH_Br9Fhi4XDlf4Hl2Ug23rJ-32djGcCBmBahri-ez8MODweGajInP7iFts0lGLcCYnNiRQJ35JszLg.jpg?r=639",
+      "genre": "Animation, Adventure, Comedy, Family"
+    },
+    {
+      "netflixid": 81663110,
+      "title": "A Simple Lie",
+      "title_type": "unknown",
+      "expiredate": "2026-04-07",
+      "countrycodes": [
+        "IT"
+      ],
+      "synopsis": "In this rom-com, a woman&#39;s lie to her ex spirals out of control, exposing secrets within a group of friends who are cheating on \u2014\u00a0and with\u00a0\u2014 each other.",
+      "rating": 0.0,
+      "imdbid": "tt18353108",
+      "runtime": "0",
+      "year": 2022,
+      "poster": "https://m.media-amazon.com/images/M/MV5BZTc4NjQyMGEtZTJhMi00NGE0LTkzNzYtOWRiZjljZTcxZDI1XkEyXkFqcGdeQXVyNzc5NDg5Mjc@._V1_SX300.jpg",
+      "img": "https://occ-0-3786-2567.1.nflxso.net/dnm/api/v6/WNk1mr9x_Cd_2itp6pUM7-lXMJg/AAAABYNl_7vVJ8xL7qHs4O87rMpCep4EoIKdleLdwBQbPQyURXC-ymhb5gkxHG4j2wYqFO_UEzSe5nH2B3dzowWIrcSdxJFFDVUPJQ.jpg?r=69b",
+      "genre": "Comedy Drama"
+    },
+    {
+      "netflixid": 80987552,
+      "title": "Troppo Napoletano",
+      "title_type": "unknown",
+      "expiredate": "2026-04-07",
+      "countrycodes": [
+        "IT"
+      ],
+      "synopsis": "A lovesick boy makes a deal with his shy psychologist: Help him win the heart of his school crush, and he\u2019ll help the man woo his widowed mother.",
+      "rating": 5.6,
+      "imdbid": "tt5654282",
+      "runtime": "95 min",
+      "year": 2016,
+      "poster": "https://m.media-amazon.com/images/M/MV5BOWMwYTVkMDEtZTcyMy00NTdmLWJjY2EtYzU5MTllYjkwZGIxXkEyXkFqcGdeQXVyNjY1OTY4MTk@._V1_SX300.jpg",
+      "img": "https://occ-0-784-778.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABeYTVmbAtJpFBH5LPeTOCpwZRy8AROJud7Oucrq4OF7uGRH1TsucthwP3SD5F-c7LhuqHqY7hvj_-ZM--JvxgCAeaQ.jpg?r=eea",
+      "genre": "Comedy"
+    },
+    {
+      "netflixid": 81408818,
+      "title": "Story of Kale: When Someone&#39;s in Love",
+      "title_type": "unknown",
+      "expiredate": "2026-04-07",
+      "countrycodes": [
+        "IT"
+      ],
+      "synopsis": "After leaving a toxic relationship, Dinda embarks on a romance with Kale, whose view on love soon shatters as he wrestles with his own insecurities.",
+      "rating": 0.0,
+      "imdbid": null,
+      "runtime": 78,
+      "year": 2020,
+      "poster": "https://occ-0-2851-38.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABft-BXMriA4TdYKkszLRXRHgj0oo5vVnOU550Ey7PLKexhGgtYJNKpRpWFmd4u2Pjo7YMxf4JkMtNMBKdKm8haPfjnOK.jpg?r=6aa",
+      "img": "https://occ-0-3906-1432.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABVwMTHFjULwLmoDlmMbm-dkxEwcBfbFp8igt3lF7JdC0l3ouz4tmc69Ll8HtpFtY3tTJ83UUKnGTShfiweo9uUSVGA.jpg?r=6aa",
+      "genre": null
+    },
+    {
+      "netflixid": 81489842,
+      "title": "Aquaman and the Lost Kingdom",
+      "title_type": "unknown",
+      "expiredate": "2026-04-06",
+      "countrycodes": [
+        "IT"
+      ],
+      "synopsis": "When the vengeful Black Manta returns wielding a powerful ancient weapon, it\u2019s up to Aquaman to reconcile with a former rival and save the world.",
+      "rating": 5.6,
+      "imdbid": "tt9663764",
+      "runtime": "124 min",
+      "year": 2023,
+      "poster": "https://m.media-amazon.com/images/M/MV5BYjQ1ZTUzMWMtY2VkNS00ZDRjLWEwODYtYmFkMWJiNTQxMDUzXkEyXkFqcGc@._V1_SX300.jpg",
+      "img": "https://occ-0-36-2567.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABVYsV9aCMEKLpkJ5UDZTReNdWvCb9X6A3CkPYKF7rDiKLwtp-y7gWrF8_UI50LbhE6Z78HOsPmD0x18LSxZRKTGXJj3Ohhn_i8sKxp54LD_awXWrVygWqY51Ubrbw4l1Ja1d2jefGYqS7fVT_FL6g4den7CUO3jxS7H4d3y6gRfdTtzY5ykQApOn84RG2EzpX4l_zA_Z0EVfnwyDeiQkAodeUwRYX_KqR2U7wWVfjEU_tROypgj2CFMhExLLPtEAbxf7tQkqbQbrPiHzzs3vS1UpfMEoiKr_MeZdXJ_szKuDZlogGuLPk2qifYpZvaoaBvSAU_unYGWB5WHan9t-sg.jpg?r=c99",
+      "genre": "Action Adventure Fantasy"
+    },
+    {
+      "netflixid": 80997339,
+      "title": "Sirius the Jaeger",
+      "title_type": "unknown",
+      "expiredate": "2026-04-06",
+      "countrycodes": [
+        "IT"
+      ],
+      "synopsis": "In imperial Tokyo, a group calling themselves &#39;Jaegers&#39; secretly hunt the vampires seeking the Arc of Sirius. Among them is young werewolf, Yuliy.",
+      "rating": 6.8,
+      "imdbid": "tt8565136",
+      "runtime": "25 min",
+      "year": 2018,
+      "poster": "https://m.media-amazon.com/images/M/MV5BZTQ5OTkzYjYtZTU0Ni00ZDIxLWIzOTAtZDNkZWVkMjdmZDUyXkEyXkFqcGdeQXVyMzI2Mjc1NjQ@._V1_SX300.jpg",
+      "img": "https://occ-0-2851-38.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABc6FNGvvW8IgVdhY7EmaonGhBpjIUHubTHZyE4RfNCQWvxSZV_0ZJAAxa-ecGvQzVyvlxLmcb9u55J6ty6Ipz_PTZbgzXuaRxAIrcaIhsC3L6IAYD6FfLrqVvc8.jpg?r=7a9",
+      "genre": "Animation, Action, History, Horror"
+    }
+  ],
+  "total": 12,
+  "fetched_at": "2026-04-04T08:17:00.548209Z",
+  "country": "269"
+}
