@@ -9,7 +9,7 @@ description = "Daily export of Netflix titles in scadenza + static UI."
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "requests>=2.32.4",
+    "requests>=2.33.1",
     "python-dotenv>=1.2.2",
 ]
 
