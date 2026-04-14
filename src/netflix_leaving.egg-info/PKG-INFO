@@ -5,10 +5,10 @@ Summary: Daily export of Netflix titles in scadenza + static UI.
 Requires-Python: >=3.10
 Description-Content-Type: text/markdown
 License-File: LICENSE
-Requires-Dist: requests>=2.32.4
-Requires-Dist: python-dotenv>=1.0.1
+Requires-Dist: requests>=2.33.1
+Requires-Dist: python-dotenv>=1.2.2
 Provides-Extra: dev
-Requires-Dist: pytest>=7.4; extra == "dev"
+Requires-Dist: pytest>=9.0.3; extra == "dev"
 Dynamic: license-file
 
 # Netflix Titles Leaving
