@@ -1,0 +1,24 @@
+{
+  "results": [
+    {
+      "netflixid": 81770778,
+      "title": "Gloria",
+      "title_type": "unknown",
+      "expiredate": "2026-07-04",
+      "countrycodes": [
+        "IT"
+      ],
+      "synopsis": "A one-time great actor prepares for a triumphant return to the big screen. But neither her comeback nor her personal life go according to plan.",
+      "rating": 7.1,
+      "imdbid": "tt0080798",
+      "runtime": "123 min",
+      "year": 2023,
+      "poster": "https://m.media-amazon.com/images/M/MV5BNmRkNGM0MmUtN2FlMy00YzFmLThiMmEtM2I3NGE2Mjk0MTJkXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
+      "img": "https://occ-0-7370-778.1.nflxso.net/dnm/api/v6/WNk1mr9x_Cd_2itp6pUM7-lXMJg/AAAABSVO3PNLAQLnVwrtTJ8MQWvkFEHY2VTps5Xy7LBDnfqYIYgSrc0SNrL95Xxg0DWA9VjPPoccM8lSxF9YdilG41AzK7LH2h2KJEXo8c0n3--7CbRq790ZX6yJCZR67oSTv2jaO5OHVwbq6RMyf4HCST1SRaKXvSxyQ7A3kShfcbutbnguKhJGVDlajNtozOJujUORT5Dv3pcRRk7vln8rw8FOCYRSGpPPrzqIf3OoCXeQfFCvyev5zKOGb81WL5V3FeB3BUccTRdWpnM5UygOmLwM-fk.jpg?r=1a7",
+      "genre": "Crime Drama Thriller"
+    }
+  ],
+  "total": 1,
+  "fetched_at": "2026-07-02T09:09:14.512230Z",
+  "country": "269"
+}
